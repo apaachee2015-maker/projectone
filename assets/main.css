@@ -1,0 +1,23 @@
+    body
+    {
+        max-width: 100%;
+        min-width: 320px;
+    }
+
+    html
+    ,body
+    {
+    height: 100%;
+
+    }
+
+    .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main.main
+    {
+        flex: 1 1 auto;
+    }
