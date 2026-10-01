@@ -29,11 +29,19 @@ function getConnection()
 
 }
 
+function abort($code = 404)
+{
+    http_response_code($code);
+    require VIEWS . "/errors/{$code}.tpl.php";
+    die();
+}
+
 function dbQuery( $query, $params = [])
 {
     $db = getConnection();
     $stmt = $db->prepare($query);
     $stmt->execute($params);
+//    $stmt->fetch();
     return $stmt;
 }
 

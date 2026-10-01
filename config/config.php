@@ -5,7 +5,7 @@ $protocol = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER
 
 $host = $_SERVER['HTTP_HOST'];
 
-define("GLOBAL_WWW", $protocol . $host);
+define("GLB_WWW", $protocol . $host);
 
 
 define("ROOT", dirname(__DIR__));
@@ -14,5 +14,5 @@ define("VIEWS", ROOT . '/views');
 define("APP", ROOT . '/app');
 define("CONTROLLERS", APP . '/controllers');
 define("PATH", ROOT . '/public');
-define("LOCAL_WWW", 'http://pless3.loc');
+define("LCL_WWW", 'http://pless3.loc');
 

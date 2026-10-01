@@ -2,7 +2,7 @@
  <?php
 
 
- require 'incs/header.php';
+ require VIEWS . '/incs/header.php';
  ?>
 
  <main class="main py-3">
@@ -52,6 +52,6 @@
 
 
  <?php
- require_once 'incs/footer.php';
+ require_once VIEWS . '/incs/footer.php';
  ?>
 

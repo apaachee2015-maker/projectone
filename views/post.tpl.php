@@ -1,6 +1,6 @@
 
 <?php
-require_once 'incs/header.php';
+require_once VIEWS . '/incs/header.php';
 ?>
 
 
@@ -26,7 +26,7 @@ require_once 'incs/header.php';
                 </div>
 
                 <?php
-                require_once 'incs/sidebar.php';
+                require_once VIEWS . '/incs/sidebar.php';
                 ?>
 
 
@@ -36,5 +36,5 @@ require_once 'incs/header.php';
     </main>
 
 <?php
-require_once 'incs/footer.php';
+require_once VIEWS . '/incs/footer.php';
 ?>

@@ -1,7 +1,5 @@
 <?php
 
-require 'config/helper_functions.php';
-
 
 if (isset($_POST['create']))
 {
@@ -17,4 +15,4 @@ if (isset($_POST['create']))
 
 
 
-require 'views/create.tpl.php';
+require VIEWS . '/create.tpl.php';
