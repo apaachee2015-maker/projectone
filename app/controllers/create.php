@@ -1,13 +1,15 @@
 <?php
+use  Myfrm\Db;
 
+$db = new Db();
 
 if (isset($_POST['create']))
 {
-    $title = $_POST['title'];
-    $excerpt = $_POST['excerpt'];
-    $content = $_POST['content'];
 
-    dbQuery("INSERT INTO posts (`title`, `excerpt`, `content`) VALUES (?, ?, ?)", [$title, $excerpt, $content]);
+    $fillable = ['title', 'excerpt', 'content'];
+    $data = loadData($fillable);
+
+    $db->query("INSERT INTO posts (`title`, `excerpt`, `content`) VALUES (?, ?, ?)", [$data['title'],$data['excerpt'],$data['content']]);
 
     header('Location: /');
 

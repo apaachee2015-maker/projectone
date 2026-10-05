@@ -1,12 +1,13 @@
 
 <?php
     $title = 'Apachee Blog';
-
+    use Myfrm\Db;
 
 
 //  $id = $_GET['id'] ?? '';
 
-  $db = getConnection();
+  $db = new Db();
+//  $db = getConnection();
   $posts = $db->query("SELECT * FROM posts ORDER BY id DESC")->fetchall();
   $recent_posts = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT 5") ;
 
