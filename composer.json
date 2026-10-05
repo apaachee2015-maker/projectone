@@ -1,0 +1,9 @@
+{
+    "name": "vendor/pless3",
+    "autoload": {
+        "psr-4": {
+            "Myfrm\\": "app/core/classes/"
+        }
+    },
+    "require": {}
+}
