@@ -13,7 +13,12 @@
              <div class="col-md-12">
                  <h1>New Post</h1>
 
-                 <form action="" method="post">
+                 <form action="" method="post" enctype="multipart/form-data">
+
+                             <div class="mb-3 form-check">
+                                 <input type="checkbox" name="is_published" value="1" class="form-check-input" id="isPublished" checked>
+                                 <label class="form-check-label" for="isPublished">Share instantly</label>
+                             </div>
 
                      <div class="mb3">
                          <label id="title" for="title" class="form-label">
@@ -32,6 +37,11 @@
                          <label for="content" class="form-label" id="content">Post Content</label>
                          <textarea name="content" id="content" class="form-control" rows="5" placeholder="Post content"></textarea>
 
+                     </div>
+
+                     <div class="mb-3">
+                         <label for="image" class="form-label">Image of post</label>
+                         <input type="file" class="form-control"  name="image" id="image" accept="image/*">
                      </div>
 
                      <div class="mt-4">

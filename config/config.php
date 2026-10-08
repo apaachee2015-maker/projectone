@@ -15,5 +15,6 @@ define("APP", ROOT . '/app');
 define("CORE", APP . '/core');
 define("CONTROLLERS", APP . '/controllers');
 define("PATH", ROOT . '/public');
+define("UPLOAD_IMG", PATH . '/post-images');
 define("LCL_WWW", 'http://pless3.loc');
 

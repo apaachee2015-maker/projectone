@@ -16,6 +16,12 @@ require_once VIEWS . '/incs/header.php';
 
                         <div class="card w-100 mt-2 mb-2">
                             <div class="card-body">
+
+                                <?php if (!empty($post['image'])): ?>
+
+                                        <img src="/post-images/<?= htmlspecialchars($post['image']) ?>" alt="<?= htmlspecialchars($post['title']) ?>" class="img-fluid" style="max-height: 400px; border-radius: 6px;">
+
+                                <?php endif; ?>
                                 <h5 class="card-title"><?= $post['title'] ?></h5>
                                 <h6 class="card-title"><?= $post['excerpt'] ?></h6>
                                 <p class="card-text"><?= $post['content'] ?> </p>

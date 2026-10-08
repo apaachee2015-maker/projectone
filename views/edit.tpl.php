@@ -13,7 +13,12 @@
              <div class="col-md-12">
                  <h1>Edit Post</h1>
 
-                 <form action="" method="post">
+                 <form action="" method="post" enctype="multipart/form-data">
+
+                             <div class="mb-3 form-check">
+                                 <input type="checkbox" name="is_published" value="1" class="form-check-input" id="isPublished" checked>
+                                 <label class="form-check-label" for="isPublished">Share instantly</label>
+                             </div>
 
                      <input type="hidden" name="id" value="<?=$post['id']?>">
 
@@ -36,8 +41,22 @@
 
                      </div>
 
+                         <div class="mb-3">
+                             <label for="image" class="form-label">Image of post</label>
+                             <!-- Показываем старую картинку, если она есть в базе -->
+
+    <!--                         --><?php //if (!empty($post['image'])): ?>
+    <!--                             <div class="mb-2">-->
+    <!--                                 <img src="/uploads/--><?php //= htmlspecialchars($post['image']) ?><!--" alt="" style="max-height: 120px; border-radius: 4px; display: block; margin-bottom: 5px;">-->
+    <!--                                 <small class="text-muted">Текущая картинка</small>-->
+    <!--                             </div>-->
+    <!--                         --><?php //endif; ?>
+
+                             <input type="file" class="form-control"  name="image" id="image" accept="image/*">
+                         </div>
+
                      <div class="mt-4">
-                         <button name="create" type="submit" class="btn btn-primary">Edit
+                         <button name="update" type="submit" class="btn btn-primary">Edit
                          </button>
                      </div>
 
