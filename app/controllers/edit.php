@@ -1,17 +1,32 @@
 <?php
 
-use Myfrm\Db;
 
-$db = new Db();
+/**
+* @var $db \Myfrm\Db;
+ * */
+$id = $_GET['id'] ?? '';
 
-if ($_POST['edit'])
+if (!$id) {
+    abort();
+}
+
+// 1. Сначала всегда получаем пост по id, чтобы передать его в форму
+$post = $db->query("SELECT * FROM posts WHERE id = ?", [$id])->find();
+
+if (!$post) {
+    abort();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     $fillable = ['title', 'excerpt', 'content'];
     $data = loadData($fillable);
-    dump($data['id']);
-    dd($data);
-    $data['id'] = $_GET['id'];
+
+    $data['id'] = $_POST['id'] ?? $id;
     $db->query("UPDATE posts SET title=:title, excerpt=:excerpt, content=:content WHERE id =:id",$data);
+
+    header("Location: /post?id=" . $id);
+    exit;
 }
 
-require VIEWS .
+require VIEWS . '/edit.tpl.php';

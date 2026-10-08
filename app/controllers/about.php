@@ -1,9 +1,12 @@
 
 <?php
-    $title = 'Apachee Blog About';
 
-    $db = getConnection();
-    $recent_posts = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT 5") ;
+use Myfrm\Db;
+
+$title = 'Apachee Blog About';
+
+
+    $recent_posts = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT 5")->findAll() ;
 
     $post = 'California high school students are increasingly taking the SAT, as more universities are again requiring standardized tests for
              admission and as the University of California is debating whether to reinstate its test requirement amid concerns over academic preparedness.

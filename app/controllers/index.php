@@ -6,10 +6,11 @@
 
 //  $id = $_GET['id'] ?? '';
 
-  $db = new Db();
+//  $db = Db::getInstance()->getConnection();
+
 //  $db = getConnection();
-  $posts = $db->query("SELECT * FROM posts ORDER BY id DESC")->fetchall();
-  $recent_posts = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT 5") ;
+  $posts = $db->query("SELECT * FROM posts ORDER BY id DESC")->findAll();
+  $recent_posts = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT 5")->findAll() ;
 
 
     require VIEWS . '/index.tpl.php';

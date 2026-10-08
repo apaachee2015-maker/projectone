@@ -17,11 +17,28 @@ require_once VIEWS . '/incs/header.php';
                         <div class="card w-100 mt-2 mb-2">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $post['title'] ?></h5>
-                                <h3 class="card-title"><?= $post['excerpt'] ?></h3>
+                                <h6 class="card-title"><?= $post['excerpt'] ?></h6>
                                 <p class="card-text"><?= $post['content'] ?> </p>
 
                             </div>
+
                         </div>
+
+                    <div class="col-md-4">
+                            <form action="" method="post">
+                                <div class="mt-4">
+                                    <button name="delete" type="submit" class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </div>
+                            </form>
+
+                            <form action="" method="post">
+                                <div class="mt-4">
+                                    <a class="btn btn-primary" href="/edit-post?id=<?= $post['id']?>">Edit Post</a>
+                                </div>
+                            </form>
+                    </div>
 
                 </div>
 
