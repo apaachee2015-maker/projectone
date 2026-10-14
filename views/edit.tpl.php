@@ -45,12 +45,12 @@
                              <label for="image" class="form-label">Image of post</label>
                              <!-- Показываем старую картинку, если она есть в базе -->
 
-    <!--                         --><?php //if (!empty($post['image'])): ?>
-    <!--                             <div class="mb-2">-->
-    <!--                                 <img src="/uploads/--><?php //= htmlspecialchars($post['image']) ?><!--" alt="" style="max-height: 120px; border-radius: 4px; display: block; margin-bottom: 5px;">-->
-    <!--                                 <small class="text-muted">Текущая картинка</small>-->
-    <!--                             </div>-->
-    <!--                         --><?php //endif; ?>
+                            <?php if (!empty($post['image'])): ?>
+                                <div class="mb-2">
+                                    <img src="/post-images/<?= htmlspecialchars($post['image']); ?>" alt="" style="max-height: 120px; border-radius: 4px; display: block; margin-bottom: 5px;">
+                                    <small class="text-muted">Текущая картинка</small>-->
+                                </div>
+                            <?php endif; ?>
 
                              <input type="file" class="form-control"  name="image" id="image" accept="image/*">
                          </div>

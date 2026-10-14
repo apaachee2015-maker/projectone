@@ -19,11 +19,25 @@ if (!$post) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    $fillable = ['title', 'excerpt', 'content'];
+
+    $image_name = $post['image'];
+    if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === UPLOAD_ERR_OK)
+    {
+        $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $image_name = time() . '-' . uniqid() . '.' . $ext;
+        move_uploaded_file($_FILES['image']['tmp_name'], UPLOAD_IMG . '/' . $image_name);
+
+
+    }
+
+    $_POST['is_published'] = isset($_POST['is_published']) ? 1 : 0;
+    $fillable = ['title', 'excerpt', 'content', 'is_published'];
     $data = loadData($fillable);
 
     $data['id'] = $_POST['id'] ?? $id;
-    $db->query("UPDATE posts SET title=:title, excerpt=:excerpt, content=:content WHERE id =:id",$data);
+
+    $data['image'] = $image_name;
+    $db->query("UPDATE posts SET title=:title, excerpt=:excerpt, content=:content, image=:image, is_published=:is_published WHERE id =:id",$data);
 
     header("Location: /post?id=" . $id);
     exit;

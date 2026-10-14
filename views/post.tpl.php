@@ -26,8 +26,15 @@ require_once VIEWS . '/incs/header.php';
                                 <h6 class="card-title"><?= $post['excerpt'] ?></h6>
                                 <p class="card-text"><?= $post['content'] ?> </p>
 
-                            </div>
 
+                            <a href="/post?id=<?= $post['id'] ?>&action=like" class="btn btn-outline-danger btn-sm">
+                                👍  (<?= $post['likes'] ?? 0 ?>)
+                            </a>
+                                <a href="/post?id=<?= $post['id'] ?>&action=dislike" class="btn btn-outline-danger btn-sm">
+                                    👎  (<?= $post['dislikes'] ?? 0 ?>)
+                                </a>
+                                <small class="text-muted"> Published at : <?= date('d-m-Y', strtotime($post['created_at'])) ?></small>
+                            </div>
                         </div>
 
                     <div class="col-md-4">

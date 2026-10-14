@@ -1,4 +1,5 @@
 /vendor/
 /.idea/
+/public/post-images/
 .DS_Store
 *.log

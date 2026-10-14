@@ -19,6 +19,18 @@
                                 </h5>
                                 <p class="card-text"><?= $post['excerpt']?> </p>
                                 <a href="post?id=<?= $post['id']?>">Read more</a>
+
+                                <?php if (!empty($post['image'])): ?>
+                                    <div class="mb-2">
+                                        <img src="/post-images/<?= htmlspecialchars($post['image']); ?>" alt="" style="max-height: 120px; border-radius: 4px; display: block; margin-bottom: 5px;">
+
+                                    </div>
+                                <?php endif; ?>
+                                <a href="/post?id=<?= $post['id'] ?>&action=like" class="btn btn-outline-danger btn-sm">
+                                    👍  (<?= $post['likes'] ?? 0 ?>)
+                                </a>
+                                <small class="text-muted"> Published at : <?= date('d-m-Y', strtotime($post['created_at'])) ?></small>
+
                             </div>
                         </div>
                     <?php } ?>
